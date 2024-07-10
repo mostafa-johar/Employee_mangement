@@ -1,0 +1,152 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  max-width: 1170px;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/*==================== 
+-- index page
+====================== */
+h1.title {
+  text-align: center;
+  margin: 20px 0;
+  font-weight: 500;
+  font-size: 18px;
+}
+#employeeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#employeeForm .form_controll {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  h1.title {
+    font-size: 25px;
+  }
+  #employeeForm .form_controll {
+    flex-direction: row;
+  }
+}
+#employeeForm .form_controll .status,
+#employeeForm .form_controll .Birthdate,
+#employeeForm .form_controll .status label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#employeeForm .form_controll input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#employeeForm .form_controll input::placeholder {
+  font-size: 14px;
+  font-weight: 600;
+  color: #b9b8b8;
+}
+#employeeForm .addBtn {
+  width: 150px;
+  padding: 10px;
+  border: 0;
+  background-color: #059212;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+#employeeForm .update {
+  background-color: #0f12cfb3;
+}
+.tableBox {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+}
+table,
+th,
+td {
+  border: 1px solid rgb(228, 228, 228);
+  border-collapse: collapse;
+  text-align: center;
+  padding: 5px;
+  font-size: 14px;
+}
+th {
+  font-weight: 500;
+}
+td.edit_and_delete button {
+  padding: 0px;
+  margin: 0px 3px;
+  border: 0;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+tr:first-of-type {
+  background-color: #1e2227;
+  color: white;
+}
+
+.tableBox .active {
+  color: #079107;
+}
+.tableBox .inactive {
+  color: #910707;
+}
+/*------ popUp------ */
+.overlay {
+  background-color: #7fffd424;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.delete_box {
+  background-color: white;
+  border: 1px solid #eee;
+  padding: 36px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: fit-content;
+  text-align: center;
+}
+
+.delete_box p {
+  margin-bottom: 10px;
+}
+.delete_box button {
+  padding: 10px 20px;
+  border: 0;
+  margin: 5px;
+  color: white;
+  cursor: pointer;
+}
+.delete_box button:first-of-type {
+  background-color: #079107;
+}
+.delete_box button:last-of-type {
+  background-color: #910707;
+}
