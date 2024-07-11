@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // devtools
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   
   // css
   css : ["~/assets/css/main.css"],

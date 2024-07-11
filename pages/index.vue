@@ -9,7 +9,7 @@ const store = storeEmployee();
 
 const { employees, inputs, active, showpopUp } = storeToRefs(store);
 
-const { updateEmployee, submitFn, deleteEmployee, PopUp } = store;
+const { updateEmployee, submitFn, deleteEmployee ,Reset } = store;
 
 const method = computed(() => (active.value ? "POST" : "PUT"));
 
@@ -31,7 +31,7 @@ const showpopUpFn = (id) => {
       <div class="delete_box" v-if="showpopUp">
         <p>Are you to sure to delete ?</p>
         <button @click="deleteEmployee(useID)">Yes</button>
-        <button @click="showpopUp = !showpopUp">No</button>
+        <button @click="(showpopUp = !showpopUp) || Reset()">No</button>
       </div>
 
       <!-- title -->

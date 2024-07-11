@@ -43,6 +43,8 @@ export const storeEmployee = defineStore("EmployessStore", () => {
     inputs.salary = 0;
     inputs.birthdate = "";
     inputs.status = "";
+
+    active.value = true
   }
 
   // =================================================
@@ -75,6 +77,12 @@ export const storeEmployee = defineStore("EmployessStore", () => {
 
     // to create an employee
     if (method == "POST") {
+
+      if (uniqueEmp.length) {
+        alert("Email must be unique");
+        return;
+      }
+
       const createEmp = await $fetch("/api/home", {
         method: "POST",
         body: JSON.stringify(body),
@@ -85,10 +93,6 @@ export const storeEmployee = defineStore("EmployessStore", () => {
         employees.value.push(body);
       }
 
-      if (uniqueEmp.length) {
-        alert("Email must be unique");
-        return;
-      }
     }
     // to update an employee
     if (method == "PUT") {
@@ -103,7 +107,8 @@ export const storeEmployee = defineStore("EmployessStore", () => {
       }
 
     }
-
+    
+    // check if post oR put done 
     if (check) {
       Reset();
       active.value = true;
@@ -133,6 +138,7 @@ export const storeEmployee = defineStore("EmployessStore", () => {
 
   // delete
   async function deleteEmployee(id: string) {
+    Reset()
     const deleteEmp = await $fetch(`/api/home/${id}`, {
       method: "DELETE",
     });
@@ -153,5 +159,6 @@ export const storeEmployee = defineStore("EmployessStore", () => {
     updateEmployee,
     submitFn,
     deleteEmployee,
+    Reset
   };
 });
