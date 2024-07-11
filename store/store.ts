@@ -72,11 +72,8 @@ export const storeEmployee = defineStore("EmployessStore", () => {
       return item.email == inputs.email;
     });
 
-    if (uniqueEmp.length) {
-      alert("Email must be unique");
-      return;
-    }
 
+    // to create an employee
     if (method == "POST") {
       const createEmp = await $fetch("/api/home", {
         method: "POST",
@@ -87,17 +84,24 @@ export const storeEmployee = defineStore("EmployessStore", () => {
         check = true;
         employees.value.push(body);
       }
-    }
 
+      if (uniqueEmp.length) {
+        alert("Email must be unique");
+        return;
+      }
+    }
+    // to update an employee
     if (method == "PUT") {
       const updateEmp = await $fetch(`/api/home/${Id.value}`, {
         method: "PUT",
         body: JSON.stringify(body),
       });
+
       if (updateEmp) {
         check = true;
         getData();
       }
+
     }
 
     if (check) {
